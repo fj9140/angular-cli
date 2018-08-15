@@ -1,0 +1,8 @@
+{
+    "private":true,
+    "description":"Software Development Kit for Angular",
+    "scripts":{
+        "admin":"node ./bin/devkit-admin",
+        "build":"npm run admin -- build"
+    }
+}
