@@ -1,2 +1,2 @@
-# angular-cli
-CLI tool for Angular http://cli.angular.lilufan.net
+# Angular DevKit
+### Development tools and libraries specialized for Angular
