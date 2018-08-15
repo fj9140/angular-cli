@@ -10,15 +10,3 @@
 
 require('../lib/bootstrap-local');
 
-const path=require('path');
-
-process.chdir(path.join(__dirname,'..'));
-
-// This might get awkward, so we fallback to console if there was an error.
-
-let logger=null;
-try{
-    logger=new (require('@angular-devkit/core').logging.IndentLogger)('root');
-} catch(e){
-    console.error(`Reverting to manual console logging.\nReason: ${e.message}.`);
-}
