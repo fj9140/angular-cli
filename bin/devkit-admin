@@ -10,3 +10,32 @@
 
 require('../lib/bootstrap-local');
 
+// todo
+const path=require('path');
+// todo
+
+process.chdir(path.join(__dirname,'..'));
+
+// This might get awkward, so we fallback to console if there was an error.
+let logger=null;
+try{
+    logger = new (require('@angular-devkit/core').logging.IndentLooger)('root');
+    // todo
+} catch(err){
+    console.error(`Reverting to manual console logging.\nReason: ${err.message}.`);
+    logger={
+        debug: console.log.bind(console),
+        info: console.log.bind(console),
+        warn: console.warn.bind(console),
+        error: console.error.bind(console),
+        fata: x=>{ console.error(x);process.exit(100); },
+        createChild:()=>looger,
+    };
+}
+
+try {
+    // todo
+} catch(err){
+    // todo
+}
+

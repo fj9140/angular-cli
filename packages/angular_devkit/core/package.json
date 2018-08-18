@@ -1,10 +1,5 @@
 {
     "name":"@angular-devkit/core",
-    "version":"0.0.0.0",
-    "description":"Angular DevKit - Core Untlity Library",
     "main":"src/index.js",
-    "typings":"src/index.d.ts",
-    "keywords":[
-        "core"
-    ]
+    "typings":"src/index.d.ts"
 }
