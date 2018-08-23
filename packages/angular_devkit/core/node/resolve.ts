@@ -1,5 +1,7 @@
 // todo
 
-export function setResolveHook(){}; // todo
+export function setResolveHook(){
+    // todo
+};
 
 // todo

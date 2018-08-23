@@ -3,6 +3,9 @@ import * as path from 'path';
 import * as ts from 'typescript';
 import * as fs from 'fs';
 
+const distRoot=path.join(__dirname,'../dist');
+const {packages:monorepoPackages}=require('../.monorepo.json');
+
 export interface PackageInfo{
     // todo
 }
@@ -103,10 +106,47 @@ export const packages:PackageMap =
         const pkgRoot=pkg.root;
         const packageJson=loadPackageJson(path.join(pkgRoot,'package.json'));
         const name=packageJson['name'];
-        if(name){
+        if(!name){
             // Only build the entry if there's a package name.
-            packages;
+            return packages;
         }
+        const bin:{[name:string]:string}={};
+        Object.keys(packageJson['bin']||{}).forEach(binName=>{
+            let p=path.resolve(pkg.root,packageJson['bin'][binName]);
+            if(!fs.existsSync(p)){
+                p=p.replace(/\.js$/,'.ts');
+            }
+            bin[binName]=p;
+        });
+
+        packages[name]={
+            build:path.join(distRoot,pkgRoot.substr(path.dirname(__dirname).length)),
+            dist:path.join(distRoot,name),
+            root:pkgRoot,
+            relative:path.relative(path.dirname(__dirname),pkgRoot),
+            main:path.resolve(pkgRoot,'src/index.ts'),
+            private:packageJson.private,
+            tar:path.join(distRoot,name.replace('/','_')+'.tgz'),
+            bin,
+            name,
+            packageJson,
+            snapshot:!!monorepoPackages[name].snapshotRepo,
+            snapshotRepo:monorepoPackages[name].snapshotRepo,
+            get snapshotHash(){
+                return _getSnapshotHash(this);
+            },
+
+            dependencies:[],
+            hash:'',
+            dirty:false,
+            version:monorepoPackages[name] && monorepoPackages[name].version || '0.0.0'
+        };
+
+        return packages;
+        }
+
+
+        
     },{});  // todo
 
 // todo

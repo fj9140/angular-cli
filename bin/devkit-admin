@@ -7,7 +7,6 @@
  * Simply use package.json to have npm scripts that use this script as well, or use
  * this script directly.
  */
-
 require('../lib/bootstrap-local');
 
 // todo
@@ -19,7 +18,9 @@ process.chdir(path.join(__dirname,'..'));
 // This might get awkward, so we fallback to console if there was an error.
 let logger=null;
 try{
-    logger = new (require('@angular-devkit/core').logging.IndentLooger)('root');
+    logger = new (require('@angular-devkit/core').logging.IndentLogger)('root');
+    const {bold,gray,red,yellow,white}=require('@angular-devkit/core').terminal;
+    
     // todo
 } catch(err){
     console.error(`Reverting to manual console logging.\nReason: ${err.message}.`);
