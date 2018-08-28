@@ -1,4 +1,4 @@
-import {mapObject} from '../util/object';
+import {mapObject} from '../utils/object';
 
 const kColors={
     modifiers:{
