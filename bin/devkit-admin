@@ -20,6 +20,20 @@ let logger=null;
 try{
     logger = new (require('@angular-devkit/core').logging.IndentLogger)('root');
     const {bold,gray,red,yellow,white}=require('@angular-devkit/core').terminal;
+    const filter=require('rxjs/operators').filter;
+    logger
+        .pipe(filter(entry=>(entry.level!=="debug"||args.verbose)))
+        .subscribe(entry=>{
+            let color=gray;
+            let output=process.stdout;
+            switch(entry.level){
+                case 'info': color=white;break;
+                case 'warn': color=yellow;break;
+                case 'error': color=red;output=process.stderr;break;
+                case 'fatal': color=x=>bold(red(x)); output=process.stderr;break;
+            }
+            output.write(color(entry.message)+'\n');
+        });
     
     // todo
 } catch(err){

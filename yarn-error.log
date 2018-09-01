@@ -1,0 +1,47 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\Administrator\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js install
+
+PATH: 
+  E:\cygwin64\usr\local\bin;E:\cygwin64\bin;C:\Perl64\site\bin;C:\Perl64\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;G:\INSTALL\TortoiseSVN\bin;C:\Program Files\VisualSVN Server\bin;G:\INSTALL\MyEclipse2016\binary\com.sun.java.jdk8.win32.x86_64_1.8.0.u66\bin;G:\INSTALL\SciTools\bin\pc-win64;E:\php;C:\ProgramData\ComposerSetup\bin;C:\Python27;C:\Program Files\dotnet;E:\Program Files\nant-0.92\bin;E:\Program Files\doxygen\bin;E:\Program Files (x86)\Graphviz2.38\bin;C:\Program Files\nodejs;C:\Program Files\Git\cmd;C:\Ruby25-x64\bin;C:\Program Files (x86)\NetPowerVPNClient\bin;C:\Users\Administrator\AppData\Local\Programs\Fiddler;C:\Users\Administrator\AppData\Roaming\Composer\vendor\bin;E:\Users\Administrator\AppData\Local\Programs\Fiddler;C:\Users\Administrator\AppData\Roaming\npm;C:\Users\Administrator\AppData\Local\GitHubDesktop\bin;C:\Users\Administrator\AppData\Local\atom\bin;E:\Program Files\Microsoft VS Code\bin
+
+Yarn version: 
+  1.6.0
+
+Node version: 
+  8.11.2
+
+Platform: 
+  win32 x64
+
+Trace: 
+  SyntaxError: C:\Users\Administrator\Documents\GitHub\angular-cli\package.json: Unexpected end of JSON input
+      at JSON.parse (<anonymous>)
+      at C:\Users\Administrator\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:1130:59
+      at Generator.next (<anonymous>)
+      at step (C:\Users\Administrator\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:98:30)
+      at C:\Users\Administrator\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:109:13
+      at <anonymous>
+
+npm manifest: 
+  {
+    "private": true,
+    "description": "Software Development Kit for Angular",
+    "scripts": {
+      "admin": "node ./bin/devkit-admin",
+      "build": "npm run admin -- build"
+    },
+    "workspaces": [
+      "packages/angular_devkit/*"
+    ],
+    "dependencies": {
+      "typescript": "^3.0.1"
+    },
+    "resolutions":{
+        "rxjs":"6.0.0"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

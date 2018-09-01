@@ -15,7 +15,7 @@ const kColors={
         white:[37,30],
         gray:[90,39]
     }
-}
+};
 
 const kColorFunctions=mapObject(kColors,(_,v)=>{
     return mapObject(v,(_,vv)=>(x:string =>`\u001b[${vv[0]}m${x}\u001b[${vv[1]}m`);
@@ -25,6 +25,6 @@ export const bold = kColorFunctions.modifiers.bold;
 export const gray = kColorFunctions.colors.gray;
 export const red = kColorFunctions.colors.red;
 export const yellow = kColorFunctions.colors.yellow;
-export const whtei = kCOlorFUnctions.color.white;
+export const whtei = kColorFunctions.colors.white;
 
 

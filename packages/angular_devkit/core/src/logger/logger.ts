@@ -1,2 +1,3 @@
+import {Observable} from 'rxjs';
 
-export class Logger{}
+export class Logger extends Observable<LogEntry>{}
